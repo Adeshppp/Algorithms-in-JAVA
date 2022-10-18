@@ -63,5 +63,6 @@ class Solu {
         for (int j : id) {
             System.out.print(j + " ");
         }
+        System.out.println();
     }
 }
