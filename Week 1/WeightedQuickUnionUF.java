@@ -4,7 +4,7 @@ public class WeightedQuickUnionUF {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        Sol s = new Sol(n);
+        WSol s = new WSol(n);
         while (true) {
             System.out.println("enter 1 if want to call union function and 2 if want to check whether elements are connected or not and 3 to print an array and 4 to exit: ");
             int l = sc.nextInt();
@@ -26,6 +26,10 @@ public class WeightedQuickUnionUF {
             } else if (l == 4) {
                 System.out.print("We made it!!!");
                 break;
+            } else if (l == 5) {
+                int i = sc.nextInt();
+                int j = sc.nextInt();
+                s.index(i, j);
             } else System.out.print("Please enter valid option!");
 
         }
@@ -41,6 +45,7 @@ class Sol {
         sz = new int[N];
         for (int i = 0; i < id.length; i++) {
             id[i] = i;
+            sz[i] = 1;
         }
     }
 
@@ -66,7 +71,11 @@ class Sol {
             id[b] = a;
             sz[a] += sz[b];
         }
-        id[a] = b;
+//        id[a] = b;
+    }
+
+    void index(int i, int j) {
+        System.out.print(sz[i] + " " + sz[j]);
     }
 
     public void print() {

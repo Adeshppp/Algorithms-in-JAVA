@@ -4,7 +4,7 @@ public class QuickUnionUF {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        Solu s = new Solu(n);
+        SolPath s = new SolPath(n);
         while (true) {
             System.out.println("enter 1 if want to call union function and 2 if want to check whether elements are connected or not and 3 to print an array and 4 to exit: ");
             int l = sc.nextInt();
