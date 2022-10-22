@@ -3,8 +3,6 @@
 This is the course on algorithms in java by princeton university by "Proff Robert Sedgewick" and "Proff Kevin Wayne".
 This course covers essential info that every serious programmer needs to know about algorithms and data structures.
 
-Week 1:
-
 In week 1 assignment 0, there is a jar file which needs to be extracted. to extract files just run "jar xf jarfilename"
 command in terminal.
 
@@ -36,8 +34,7 @@ Improvement to Quick Union algo:
    tree to the larger tree accordingly.
    e.g: if union(x,y)
    algorithm will check the trees in which these x and y element located. if height of the tree of x has height less
-   that
-   y's tree then tree of x will be connected to the root of y's tree.
+   than y's tree then tree of x will be connected to the root of y's tree.
 2. Weighted Quick Union with Path Compression. this algo makes it possible to solve problems that could not otherwise be
    treated.
 
@@ -46,3 +43,30 @@ Time complexity analysis:
 to perform x number of union and find operations Quick-find algo takes x secs.
 so for large problems for example for 10^9 unions and finds operations with 10^9 objects, machine takes 30 years to
 solve. same problem could be solved in 3 sec if we use the "Weighted Quick Union Path Compression" algorithm.
+
+# Analysis of Algorithm:
+
+Some Algorithmic success:
+
+1. Discrete Fourier Transform:
+   with brute force it algo needs n^2 steps and by using Fast Fourier Transform algo problem will be solve in N*logN
+   time.
+2. N body simulation problem:
+   Brute force N^2 --> Barnes Hut algorithm Nlog(N)
+
+Scientific method for analysis of algorithm:
+
+1. Observe feature
+2. Hypothesize model
+3. Predict events
+4. Verify prediction
+5. validate by repeat until hypothesis and observation agrees
+
+Commonly used notations in the theory of algorithms:
+
+1. Big theta : classify algorithms
+2. Big Oh : Worst case : Upper bound
+3. Big Omega : Easy case : Lower bound
+
+
+
