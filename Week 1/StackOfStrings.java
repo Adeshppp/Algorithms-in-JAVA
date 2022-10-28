@@ -33,6 +33,7 @@ public class StackOfStrings {
 
     public static void main(String[] args) {
         StackOfStrings stack = new StackOfStrings();
+        StdOut.println("Enter '-' to pop a string and Enter string to push that string into stack separated by space.");
         StdOut.print("Enter the string: ");
         while (!StdIn.isEmpty()) {
             String s = StdIn.readString();
