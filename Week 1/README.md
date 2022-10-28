@@ -68,5 +68,9 @@ Commonly used notations in the theory of algorithms:
 2. Big Oh : Worst case : Upper bound
 3. Big Omega : Easy case : Lower bound
 
+Stacks and Queues:
+
+Performed stacks by using LinkedList in java.
+file name: StackOfStrings.java
 
 
