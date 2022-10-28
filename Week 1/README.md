@@ -68,9 +68,26 @@ Commonly used notations in the theory of algorithms:
 2. Big Oh : Worst case : Upper bound
 3. Big Omega : Easy case : Lower bound
 
-Stacks and Queues:
+# Stacks and Queues:
 
-Performed stacks by using LinkedList in java.
+## Stacks by using LinkedList in java.
+
 file name: StackOfStrings.java
+Time complexity : In this implementation every operation (push/pop) takes constant time in the worst case as in push
+operation we are adding new node at the start of an linked list and in pop operation we are returning value of 1st node
+and deleting that node by unlinking from out linkedlist.
+Space complexity : In java for inner class every object there is 16 bytes of overhead, extra 8 bytes overhead as we are
+using ListNode inner class. there is two references in out code, one is for string val and another is for Node next,
+which take 8 bytes each. so 40 bytes are needed for a stack.
+
+## Stacks by using array in java.
+
+In this approach time and space needed by the algorithm to implement a stack is more resultant this operation will be
+too expensive as in we are going to resize the array by twice the length of previous array which is full and will copy
+all the ements from older array to newer one. for each resizing operation it will take N time and for each push and pop
+operation algo will take constant time.
+
+## Queues by using LinkedList:
+
 
 
