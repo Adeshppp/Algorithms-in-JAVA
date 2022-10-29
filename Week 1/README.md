@@ -15,12 +15,12 @@ Implementing below Algorithms to solve this problem:
 3. Weighted Quick Union
 4. Quick Union with Path compression
 
-Quick find is too slow for huge problems so we have alternative to it is Quick union, which is kind of lazy approach.
-Quick union is faster than quick find algo but it could be too slow and expensive. In this approach while performing
+Quick find is too slow for huge problems, so we have alternative to it is Quick union, which is kind of lazy approach.
+Quick union is faster than quick find algo, but it could be too slow and expensive. In this approach while performing
 union operation, we are changing the root by another element's root unlike quick find. In quick find we were keeping
 value of that particular element same as another element with whom we wanted to connect.
 To solve dynamic connectivity problem in more efficient way, we have "Weighted Quick Union" approach. which is less
-expensive and it does not make taller trees like Quick Union.
+expensive, and it does not make taller trees like Quick Union.
 
 Both Quick Find and Quick Union algorithms are easy to implement but simply does not support huge dynamic connectivity
 problems.
@@ -49,7 +49,7 @@ solve. same problem could be solved in 3 sec if we use the "Weighted Quick Union
 Some Algorithmic success:
 
 1. Discrete Fourier Transform:
-   with brute force it algo needs n^2 steps and by using Fast Fourier Transform algo problem will be solve in N*logN
+   with brute force it algo needs n^2 steps and by using Fast Fourier Transform algo problem will be solved in N*logN
    time.
 2. N body simulation problem:
    Brute force N^2 --> Barnes Hut algorithm Nlog(N)
@@ -74,8 +74,8 @@ Commonly used notations in the theory of algorithms:
 
 file name: StackOfStrings.java
 Time complexity : In this implementation every operation (push/pop) takes constant time in the worst case as in push
-operation we are adding new node at the start of an linked list and in pop operation we are returning value of 1st node
-and deleting that node by unlinking from out linkedlist.
+operation we are adding new node at the start of a linked list and in pop operation we are returning value of 1st node
+and deleting that node by unlinking from out linked-list.
 Space complexity : In java for inner class every object there is 16 bytes of overhead, extra 8 bytes overhead as we are
 using ListNode inner class. there is two references in out code, one is for string val and another is for Node next,
 which take 8 bytes each. so 40 bytes are needed for a stack.
@@ -84,14 +84,31 @@ which take 8 bytes each. so 40 bytes are needed for a stack.
 
 In this approach time and space needed by the algorithm to implement a stack is more resultant this operation will be
 too expensive as in we are going to resize the array by twice the length of previous array which is full and will copy
-all the ements from older array to newer one. for each resizing operation it will take N time and for each push and pop
+all the elements from older array to newer one. for each resizing operation it will take N time and for each push and
+pop
 operation algo will take constant time.
 
 ## Queues by using LinkedList in java
 
-In QueueOfStringsLL.java, I have implemented Queues by using linkedlist. where I have enqueued the queue at the front of
-the linkedlist and performed dequeued operation at the end of the linkedlist. so for enqueuing operation algo takes
-constant time whereas for dequeuing operation linkear time is required. 
+In QueueOfStringsLL.java, I have implemented Queues by using linked-list. where I have enqueued the queue at the front
+of
+the linkedlist and performed dequeued operation at the end of the linked-list. so for enqueuing operation algo takes
+constant time whereas for dequeue operation linear time is required.
 
+# Generics
 
+In above implementations we have explicitly designed an algorithm for a strings only but if we want to implement the
+same
+stack for url or something else then we would be copying and pasting the code by changing the type from string to
+others.
 
+which is not the good approach as it could result in lengthy and error-prone code. to avoid that we are using type
+casting, although type casting is also not good in programming, but it solves the problem.
+
+As type casting is not good enough, there is a better way to solve this. By using generic type.
+
+I have implemented the generic type casting for stack implementation.
+
+file name: StackGeneric.java
+compile cmd: javac -Xlint:unchecked StackGeneric.java
+run : java StackGeneric
