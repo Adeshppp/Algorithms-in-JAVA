@@ -70,7 +70,7 @@ Commonly used notations in the theory of algorithms:
 
 # Stacks and Queues:
 
-## Stacks by using LinkedList in java.
+## Stacks by using LinkedList in java
 
 file name: StackOfStrings.java
 Time complexity : In this implementation every operation (push/pop) takes constant time in the worst case as in push
@@ -80,14 +80,18 @@ Space complexity : In java for inner class every object there is 16 bytes of ove
 using ListNode inner class. there is two references in out code, one is for string val and another is for Node next,
 which take 8 bytes each. so 40 bytes are needed for a stack.
 
-## Stacks by using array in java.
+## Stacks by using array in java
 
 In this approach time and space needed by the algorithm to implement a stack is more resultant this operation will be
 too expensive as in we are going to resize the array by twice the length of previous array which is full and will copy
 all the ements from older array to newer one. for each resizing operation it will take N time and for each push and pop
 operation algo will take constant time.
 
-## Queues by using LinkedList:
+## Queues by using LinkedList in java
+
+In QueueOfStringsLL.java, I have implemented Queues by using linkedlist. where I have enqueued the queue at the front of
+the linkedlist and performed dequeued operation at the end of the linkedlist. so for enqueuing operation algo takes
+constant time whereas for dequeuing operation linkear time is required. 
 
 
 
