@@ -71,8 +71,15 @@ handled by comparable interface.
 built-in comparable types: Integer, Double, String, Date, File
 User-defined comparable types : Implement the Comparable interface.
 
+## Sort any type of data.
 
+1. Sort random real number in ascending order.
+   file name: SortExp.java
+   compile cmd : javac-algo4 SortExp.java
+   run cmd: java-algo4 SortExp 10
 
+2. Sort strings from file in alphabetical order.
+   
 
 
 
