@@ -79,7 +79,14 @@ User-defined comparable types : Implement the Comparable interface.
    run cmd: java-algo4 SortExp 10
 
 2. Sort strings from file in alphabetical order.
-   
+   file name: StringSort.java
+   compile cmd : javac-algo4 StringSort.java
+   run cmd: java-algo4 StringSort
+
+3. Sort files in alphabetical order.
+   file name: FileSorter.java
+   compile cmd : javac-algo4 FileSorter.java
+   run cmd: java-algo4 FileSorter "file_path or ."
 
 
 
