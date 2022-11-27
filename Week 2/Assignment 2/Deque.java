@@ -1,155 +1,202 @@
-//Corner cases.  Throw the specified exception for the following corner cases:
-//
-//        Throw an IllegalArgumentException if the client calls either addFirst() or addLast() with a null argument.
-//        Throw a java.util.NoSuchElementException if the client calls either removeFirst() or removeLast when the deque is empty.
-//        Throw a java.util.NoSuchElementException if the client calls the next() method in the iterator when there are no more items to return.
-//        Throw an UnsupportedOperationException if the client calls the remove() method in the iterator.
-
-import java.util.*;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class Deque<Item> implements Iterable<Item> {
-    private ListNode first;
-    private ListNode last;
+    private Element<Item> first = null;
+    private Element<Item> last = null;
+    private int size = 0;
 
-    class ListNode {
-        Item val;
-        ListNode prev;
-        ListNode next;
-
-        ListNode(Item val, ListNode next, ListNode prev) {
-            this.next = next;
-            this.prev = prev;
-            this.val = val;
-        }
-
-        ListNode() {
-        }
-    }
-
-    int size;
-
-    // construct an empty deque
+    /**
+     * construct an empty deque
+     */
     public Deque() {
-        size = 0;
     }
 
-    // is the deque empty?
+    /**
+     * is the deque empty?
+     */
     public boolean isEmpty() {
-        if (size == 0) return true;
-        else return false;
+        return size == 0;
     }
 
-    // return the number of items on the deque
+    /**
+     * return the number of items on the deque
+     */
     public int size() {
         return size;
     }
 
-    // add the item to the front
+    /**
+     * add the item to the front
+     */
     public void addFirst(Item item) {
-        //        Throw an IllegalArgumentException if the client calls either addFirst() or addLast() with a null argument.
-        if (item == null) throw new IllegalArgumentException();
-        ListNode n1 = new ListNode(item, first, null);
-        first = n1;
-        if (last == null) last = first;
-        else first.next.prev = first;
+        if (item == null) {
+            throw new IllegalArgumentException("item can't be null");
+        }
+        Element<Item> newElement = new Element<>(item);
+        if (size == 0) {
+            first = newElement;
+            last = newElement;
+        } else {
+            first.prev = newElement;
+            newElement.next = first;
+            first = newElement;
+        }
         size++;
     }
 
-    // add the item to the back
+    /**
+     * add the item to the end
+     */
     public void addLast(Item item) {
-        //        Throw an IllegalArgumentException if the client calls either addFirst() or addLast() with a null argument.
-        if (item == null) throw new IllegalArgumentException();
-        ListNode n2 = new ListNode(item, null, last);
-        last = n2;
-        if (first == null) first = last;
-        else last.prev.next = last;
+        if (item == null) {
+            throw new IllegalArgumentException("item can't be null");
+        }
+        Element<Item> newElement = new Element<>(item);
+        if (size == 0) {
+            first = newElement;
+            last = newElement;
+        } else {
+            last.next = newElement;
+            newElement.prev = last;
+            last = newElement;
+        }
         size++;
     }
 
-    // remove and return the item from the front
-    public Item removeFirst() throws NoSuchElementException {
-        //        Throw a java.util.NoSuchElementException if the client calls either removeFirst() or removeLast when the deque is empty.
-
-        if (isEmpty()) {
-            first = null;
-            last = null;
-//            throw new NoSuchElementException();
+    /**
+     * remove and return the item from the front
+     */
+    public Item removeFirst() {
+        if (size == 0) {
+            throw new NoSuchElementException("que is empty");
         }
-        Item val = first.val;
+        size--;
+        Item result = first.element;
         first = first.next;
-        first.prev = null;
-        size--;
-        return val;
-    }
-
-    // remove and return the item from the back
-    public Item removeLast() {
-        //        Throw a java.util.NoSuchElementException if the client calls either removeFirst() or removeLast when the deque is empty.
-        if (isEmpty()) {
-            first = null;
+        if (first != null) {
+            first.prev = null;
+        } else {
             last = null;
-            throw new NoSuchElementException();
         }
-        Item val = last.val;
-        last = last.prev;
-        last.next = null;
+        return result;
+    }
+
+    /**
+     * remove and return the item from the end
+     */
+    public Item removeLast() {
+        if (size == 0) {
+            throw new NoSuchElementException("que is empty");
+        }
         size--;
-        return val;
+        Item result = last.element;
+        last = last.prev;
+        if (last != null) {
+            last.next = null;
+        } else {
+            first = null;
+        }
+        return result;
     }
 
-    // return an iterator over items in order from front to back
-    @Override
+    private void print() {
+        System.out.print("[");
+        for (Item i : this) {
+            System.out.print(i + ", ");
+        }
+        System.out.println("]");
+        System.out.println("size: " + size());
+        System.out.println(isEmpty());
+    }
+
+    /**
+     * return an iterator over items in order from front to end
+     */
     public Iterator<Item> iterator() {
-        //        Throw a java.util.NoSuchElementException if the client calls the next() method in the iterator when there are no more items to return.
-        //        Throw an UnsupportedOperationException if the client calls the remove() method in the iterator.
-        return new ListIterator();
+        return new Iterator<Item>() {
+            Element<Item> currentItem = first;
+
+            @Override
+            public boolean hasNext() {
+                return currentItem != null;
+            }
+
+            @Override
+            public Item next() {
+                if (!hasNext()) {
+                    throw new NoSuchElementException("no more elements");
+                }
+                Item i = currentItem.element;
+                currentItem = currentItem.next;
+                return i;
+            }
+
+            @Override
+            public void remove() {
+                throw new UnsupportedOperationException();
+            }
+        };
     }
 
-    public class ListIterator implements Iterator<Item> {
-        private ListNode curr = first;
+    private static class Element<T> {
+        private final T element;
+        private Element<T> next;
+        private Element<T> prev;
 
-        @Override
-        public boolean hasNext() {
-            return curr != null;
-        }
-
-        @Override
-        public Item next() {
-            if (!hasNext()) throw new NoSuchElementException();
-            Item val = curr.val;
-            curr = curr.next;
-            return val;
-
-        }
-
-        @Override
-        public void remove() {
-            throw new UnsupportedOperationException();
+        public Element(T element) {
+            this.element = element;
         }
     }
 
-    public void print() {
-        ListNode temp = first;
-        while (temp != null) {
-
-            System.out.print(temp.val + " ");
-            temp = temp.next;
-        }
-    }
-
-    // unit testing (required)
     public static void main(String[] args) {
-        Deque<Integer> DQ = new Deque<Integer>();
-        DQ.addFirst(1);
-        DQ.addFirst(10);
-        DQ.addFirst(112121);
-        DQ.addLast(1);
-//        DQ.removeFirst();
-        DQ.print();
-        System.out.println();
-        System.out.println("size: " + DQ.size());
-//        DQ.removeLast();
-//        System.out.println(DQ.isEmpty());
-    }
+        Deque<Integer> que = new Deque<>();
+        que.addFirst(1);
+        que.print();
+        que.removeFirst();
+        que.print();
 
+        que.addLast(2);
+        que.print();
+        que.removeLast();
+        que.print();
+
+        que.addFirst(3);
+        que.print();
+        que.removeLast();
+        que.print();
+
+        que.addLast(4);
+        que.print();
+        que.removeFirst();
+        que.print();
+
+
+        System.out.println("size: " + que.size());
+        System.out.println(que.isEmpty());
+        que.addFirst(2);
+        que.addFirst(3);
+        que.addFirst(4);
+        que.addFirst(5);
+        que.addLast(6);
+        que.addLast(7);
+        que.addLast(8);
+        que.addLast(9);
+        que.addLast(10);
+        que.addFirst(0);
+        que.print();
+        System.out.println("size: " + que.size());
+
+        System.out.println(que.removeFirst());
+        System.out.println(que.removeFirst());
+        System.out.println(que.removeFirst());
+        que.print();
+        System.out.println("size: " + que.size());
+
+        System.out.println(que.removeLast());
+        System.out.println(que.removeLast());
+        System.out.println(que.removeLast());
+        que.print();
+        System.out.println("size: " + que.size());
+    }
 }
