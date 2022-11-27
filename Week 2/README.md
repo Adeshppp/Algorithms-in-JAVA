@@ -55,3 +55,24 @@ File Name: StackWithMax.java
 
 In this program, regular pushing operation will happen and if pop operation command receive then program will print
 largest/maximum number out of the stack.
+
+# Elementary Sort
+
+To sort data irrespective of their data type, we have to write one program. which is possible by using mechanism
+callback.
+
+callback = reference to executable code
+
+we are going to implement callbacks by using interfaces. In JAVA, there is built in Comparable interface available.
+which has compareTo() in it. which takes object as an argument and compare with this object and returns 1(greater), -1 (
+lesser) and 0(==) depends on the result of comparison. compareTo() method has no dependence on file data type. Data type
+handled by comparable interface.
+
+built-in comparable types: Integer, Double, String, Date, File
+User-defined comparable types : Implement the Comparable interface.
+
+
+
+
+
+
