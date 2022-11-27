@@ -71,6 +71,23 @@ handled by comparable interface.
 built-in comparable types: Integer, Double, String, Date, File
 User-defined comparable types : Implement the Comparable interface.
 
+## Implementation of Comparable interface to sort generic data types:
+
+when any class implements comparable interface then that class must inherit the compareTo() in it and accordingly we can
+define the behaviour of that compareTo() method.
+
+File name: SongSorter
+
+in this example, that compareTo() method is getting called by sort method internally.
+
+## Elementary sorting methods
+
+1. Selection Sort
+2. Insertion Sort
+3. Shell Sort
+4. Shuffling
+5. Convex hull
+
 ## Sort any type of data.
 
 1. Sort random real number in ascending order.
@@ -88,5 +105,18 @@ User-defined comparable types : Implement the Comparable interface.
    compile cmd : javac-algo4 FileSorter.java
    run cmd: java-algo4 FileSorter "file_path or ."
 
+   generic typed comparable implementation example : Date class in java.util package.
 
+## Selection Sort
+
+1. In iteration i, find index min of smallest remaining entry.
+2. Swap a[i] and a[min]
+3. Repeat until i reaches to the end of an array.
+
+file name: SelectionSort.java // Integer type
+file name: Selection.java // generic type
+
+time complexity : O(n^2) // nested for loop
+space complexity : O(1) // only used two extra variables, one for swapping purpose and one for keeping track of smallest
+in unsorted array. 
 

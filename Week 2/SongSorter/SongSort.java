@@ -19,10 +19,7 @@ public class SongSort {
         System.out.println(musicList);
         Collections.sort(musicList);
         System.out.println("after sorting......");
-
-        for (Song song : musicList) {
-            System.out.print(song + " ");
-        }
+        for (Song song : musicList) System.out.print(song + " ");
 
 
     }

@@ -39,6 +39,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "last_opened_file_path": "/Users/adeshpadwal/Desktop/Algorithms/Algo in JAVA/Algorithms-in-JAVA"
@@ -59,10 +63,25 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.StackOfStringsArray">
+  <component name="RunManager" selected="Application.Song">
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+    </configuration>
+    <configuration name="Song" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Song" />
+      <module name="Algorithms-in-JAVA" />
+      <method v="2" />
+    </configuration>
+    <configuration name="SongSorter.Song" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="SongSorter.Song" />
+      <module name="Algorithms-in-JAVA" />
+      <method v="2" />
+    </configuration>
+    <configuration name="SongSorter.SongSort" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="SongSorter.SongSort" />
+      <module name="Algorithms-in-JAVA" />
+      <method v="2" />
     </configuration>
     <configuration name="StackOfStrings" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="StackOfStrings" />

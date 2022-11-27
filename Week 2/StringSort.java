@@ -10,5 +10,6 @@ public class StringSort {
         String[] a = str.split(" ");
         Insertion.sort(a);
         for (String s : a) StdOut.print(s + " ");
+        System.out.println();
     }
 }
