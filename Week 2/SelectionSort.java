@@ -16,6 +16,7 @@ public class SelectionSort {
         }
     }
 
+
     public static int findSmallest(int[] arr, int a) {
         int temp = a;
         for (int i = a + 1; i < arr.length; i++) if (arr[temp] > arr[i]) temp = i;

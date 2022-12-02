@@ -118,5 +118,9 @@ file name: Selection.java // generic type
 
 time complexity : O(n^2) // nested for loop
 space complexity : O(1) // only used two extra variables, one for swapping purpose and one for keeping track of smallest
-in unsorted array. 
+in unsorted array.
 
+## insertion sort
+
+best ase time complexity : linear
+worse case time complxity : quadratic time
